@@ -1,3 +1,4 @@
+/* General, Nav */
 html, body {
   height: 100%;
   padding: 0;
@@ -59,6 +60,8 @@ html, body {
   padding-left: 0;
   margin-left: 0;
 }
+
+/* Home page */
 
 .home-img {
   width:100%;
@@ -133,6 +136,8 @@ html, body {
   text-align: center;
 }
 
+/* Products List Page */
+
 .prod {
   width: 30%;
   height: 100%;
@@ -181,7 +186,12 @@ html, body {
 }
 
 #glut-img {
-  margin-top: 15px;
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
+
+#pump-img {
+  margin-top: 10%;
 }
 
 .product-name {
@@ -190,6 +200,8 @@ html, body {
   min-width: 300px;
   text-align: left;
 }
+
+/* Product Detail Page */
 
 .item-details {
   display: block;
@@ -239,13 +251,24 @@ html, body {
   margin-bottom: 10px;
 }
 
+.glazes input {
+  margin-right: 17px;
+  margin-left: 17px;
+  margin-bottom: 7px;
+}
+
 .dot {
   height: 25px;
   width: 25px;
   border-radius: 50%;
   display: inline-block;
-  margin-left: 2px;
-  margin-right: 2px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+
+.glazes p {
+  font-size: 9px;
 }
 
 .none {
@@ -253,7 +276,10 @@ html, body {
 }
 
 .sugar {
-  background-color: #dddddd;
+  background-color: #ffffff;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #b2b2b2;
 }
 
 .vanilla {
@@ -263,10 +289,6 @@ html, body {
 .choco {
   background-color: #685342;
 }
-
-/*.prev-img {
-  height: 75px;
-}*/
 
 .preview {
   display: inline-block;
@@ -287,4 +309,86 @@ html, body {
 
 .shown {
   border: 3px solid #fff;
+}
+
+/* CART PAGE */
+
+.cart-items {
+  width: 60%;
+  display: inline-block;
+  position: relative;
+  padding-left: 5%;
+  padding-right: 2.5%;
+  padding-top: 50px;
+  font-family: Avenir;
+  margin: 0;
+}
+
+.cart-items h4 {
+  float: right;
+}
+
+#order-summary {
+  width: 20%;
+  display: inline-block;
+  position: relative;
+  padding: 7px;
+  margin-left: 0%;
+  margin-right: 10%;
+  margin-top: 50px;
+  font-family: Avenir;
+  float: right;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.count-bubble {
+  margin-left: 10px;
+  background: #ed1d24;
+  color: #fff;
+  padding: 2px;
+}
+
+#my-cart th {
+  /*padding-left: 10%;*/
+  /*padding-right: 10%;*/
+  width: 5%;
+}
+
+#my-cart td {
+  width: 5%;
+}
+
+.cart-image {
+  width: 90%;
+}
+
+.cart-image img {
+  width: 90%;
+  padding: 5px;
+}
+
+.cart-glaze {
+  font-size: 12px;
+}
+
+td {
+  align-content: center;
+  text-align: center;
+}
+
+#checkout {
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+  background-color: #a05608;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 15px;
+  width: 100%;
+}
+
+.red {
+  color: red;
 }

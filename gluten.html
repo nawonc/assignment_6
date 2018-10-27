@@ -5,45 +5,61 @@
     <title>Bun Bun Bake Shop</title>
     <!-- styles -->
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
+  <!-- Navigation -->
   <div class="nav">
-    <a id="logo-link" href="index.html"><img id="logo" src="logo.png" alt="bun-bun-logo"></a>
+    <a id="logo-link" href="index.html"><img id="logo" src="assets/logo.png" alt="bun-bun-logo"></a>
     <a id="home-link" href="index.html"><b>Bun Bun Bake Shop</b></a>
     <a href="product-page.html">Buns</a>
     <a href="#">Gallery</a>
     <a href="#">About Us</a>
     <a href="#">Contact</a>
-    <a class="cart" href="#"><img id="cart" src="cart.png" alt="cart"></a>
+    <a class="cart" href="cart.html"><img id="cart" src="assets/cart.png" alt="cart"><span class="count-bubble"></span></a>
   </div>
 
   <div class="content item-details">
     <div class="product-img">
       <div class="item">
-        <img src="gluten-free.png" alt="gluten free bun">
+        <img id="gluten" class="roll detail-image" src="assets/gluten.png" alt="gluten free bun">
       </div>
       <div class="prev-img">
-        <div class="preview shown"><img src="gluten-free.png" alt="gluten free bun 1"></div>
-        <div class="preview"><img src="rolls-6.jpg"  alt="gluten free bun 2"></div>
-        <div class="preview"><img src="rolls-7.jpg"  alt="gluten free bun 3"></div>
+        <div class="preview shown"><img class="detail-image" src="assets/gluten.png" alt="gluten free bun 1"></div>
+        <div class="preview"><img src="assets/rolls-6.jpg"  alt="gluten free bun 2"></div>
+        <div class="preview"><img src="assets/rolls-7.jpg"  alt="gluten free bun 3"></div>
       </div>
     </div>
 
     <div class="details">
       <h3>Original (Gluten-Free)</h3>
-      <h3>$3.99</h3>
+      <h3>$1.99</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <p>Glaze:</p>
+      <p>Glaze: <b><span id="glaze-type">None</span></b></p>
         <div class="glazes">
-          <span class="dot none"></span>
-          <span class="dot sugar"></span>
-          <span class="dot vanilla"></span>
-          <span class="dot choco"></span>
+          <input type="radio" name="glaze" value="None" checked="checked">
+          <input type="radio" name="glaze" value="Sugar-milk">
+          <input type="radio" name="glaze" value="Vanilla-milk">
+          <input type="radio" name="glaze" value="Double-chocolate">
         </div>
-      <p>Quantity:</p>
-      <select>
+        <div class="glazes">
+            <div class="dot none"></div>
+            <div class="dot sugar"></div>
+            <div class="dot vanilla"></div>
+            <div class="dot choco"></div>
+        </div>
+        <div class="glazes">
+          <p class="dot">None</p>
+          <p class="dot">Sugar-Milk</p>
+          <p class="dot">Vanilla Milk</p>
+          <p class="dot">Double-Chocolate</p>
+        </div>
+      <p>Quantity: <b><span id="quantity-number">1</span></b></p>
+      <select name="quantity">
         <option value="1">1</option>
         <option value="3">3</option>
         <option value="6">6</option>
