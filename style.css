@@ -33,6 +33,11 @@ html, body {
   width: 20px;
 }
 
+#wish-icon {
+  width: 20px;
+  padding-left: 5px;
+}
+
 .active {
   color: #6b412a;
 }
@@ -251,6 +256,22 @@ html, body {
   margin-bottom: 10px;
 }
 
+#wish-button {
+  background-color: #c1c1c1;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  font-family: Avenir;
+  font-weight: 800;
+  color: #fff;
+  margin-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
 .glazes input {
   margin-right: 17px;
   margin-left: 17px;
@@ -349,13 +370,13 @@ html, body {
   padding: 2px;
 }
 
-#my-cart th {
+.table-style th {
   /*padding-left: 10%;*/
   /*padding-right: 10%;*/
   width: 5%;
 }
 
-#my-cart td {
+.table-style td {
   width: 5%;
 }
 

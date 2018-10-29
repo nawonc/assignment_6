@@ -5,7 +5,7 @@ function CinnamonRoll(flavor, glaze, quantity) {
   this.glaze = glaze;
   this.quantity = quantity;
   this.price = '1.99'; 
-  this.totalPrice = Math.round((this.price * quantity)).toString();
+  this.totalPrice = (this.price * quantity).toFixed(2).toString();
   if (this.glaze == 'None') {
     this.image = flavor + ".png";
   } else if (this.glaze == 'Sugar-milk') {
@@ -40,10 +40,22 @@ function addToCart(roll) {
     // new item is added to cart
     var myCart = [roll];
     localStorage.setItem('myCart', JSON.stringify(myCart));
-    console.log('new item added');
+    console.log('new item added to cart');
   }
-  // console.log('yes');
-  // console.log(myCart);
+}
+
+function addToWishlist(roll) {
+  if (localStorage && localStorage.getItem('myWishlist')) {
+    // wishlist exists
+    var myWishlist = JSON.parse(localStorage.getItem('myWishlist'));
+    myWishlist.push(roll);
+    localStorage.setItem('myWishlist', JSON.stringify(myWishlist));
+  } else {
+    // new item is added to cart
+    var myWishlist = [roll];
+    localStorage.setItem('myWishlist', JSON.stringify(myWishlist));
+    console.log('new item added to wishlist');
+  }
 }
 
 function displayCartItems() {
@@ -76,6 +88,33 @@ function displayCartItems() {
   }
 }
 
+function displayWishItems() {
+  if (localStorage && localStorage.getItem('myWishlist')) {
+    // show wishlist items
+    var myWishlist = JSON.parse(localStorage.getItem('myWishlist'));
+    $.each(myWishlist, function (key, value) {
+      var roll = value;
+      var flavor = roll.flavor;
+      var glaze = roll.glaze;
+      var quantity = roll.quantity;
+      $('#my-wishlist').append("<tr class='new-item'> \
+        <td class='cart-image'> \
+          <img src=assets/" + roll.image + "> \
+        </td> \
+        <td class='cart-item'> \
+          <p>" + roll.rollName + "<br/><span class='cart-glaze'>" + roll.glaze  + "</span></p> \
+        </td> \
+        <td class='cart-price'> \
+          <p>" + roll.totalPrice + "</p> \
+        </td> \
+        <td class='cart-quantity'> \
+          <p>" + roll.quantity + "</p> \
+        </td> \
+        </tr>")
+    });
+  }
+}
+
 function checkCart() {
   if (localStorage && localStorage.getItem('myCart')) {
     if (localStorage.getItem('myCart') == "[]") {
@@ -97,6 +136,25 @@ function checkCart() {
     $('#sub').hide();
     $('.count-bubble').hide();
     $('#order-summary').hide();
+  }
+}
+
+function checkWishes() {
+  if (localStorage && localStorage.getItem('myWishlist')) {
+    if (localStorage.getItem('myWishlist') == "[]") {
+      $('#my-wishlist').hide();
+      $('#wish-icon').hide();
+    } else {
+        // items exist in cart
+        var myWishlist = JSON.parse(localStorage.getItem('myWishlist'));
+        $('#no-wishes').hide();
+        $('#wish-icon').show();
+        displayWishItems();
+      }
+  } else {
+    // cart has no items (doesnt exist yet)
+    $('#my-wishlist').hide();
+    $('#wish-icon').hide();
   }
 }
   
@@ -133,7 +191,7 @@ function calculateSubTotal() {
         subtotal = +subtotal + +total;
       });
       // console.log(count);
-      return Math.round(subtotal * 100) / 100;
+      return subtotal.toFixed(2);
     }
   }
 }
@@ -142,6 +200,7 @@ function calculateSubTotal() {
 $(document).ready(function() {
 
   checkCart();
+  checkWishes();
 
   $('.remove').click(function() {
 
@@ -168,6 +227,12 @@ $(document).ready(function() {
       $('#order-summary').hide();
       $('.count-bubble').hide();
     }
+
+    if (localStorage.getItem('myWishlist') == "[]") {
+      $('#wish-icon').hide();
+      $('#no-wishes').show();
+    }
+
   });
 
   $('input[type=radio][name=glaze]').click(function() {
@@ -198,5 +263,14 @@ $(document).ready(function() {
     var newRoll = new CinnamonRoll(flavor, glaze, quantity);
     addToCart(newRoll);
     checkCart();
+  });
+
+  $('#wish-button').click(function() {
+    var flavor = $('.roll').attr('id');
+    var glaze = $('input[type=radio][name=glaze]:checked').val();
+    var quantity = $('select[name=quantity] option:checked').val();
+    var newRoll = new CinnamonRoll(flavor, glaze, quantity);
+    addToWishlist(newRoll);
+    checkWishes();
   });
 });

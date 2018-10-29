@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-    <script type="text/javascript" src="main.js"></script>
+    <script src="main.js"></script>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
   </head>
 
@@ -20,7 +20,7 @@
       <a href="#">Gallery</a>
       <a href="#">About Us</a>
       <a href="#">Contact</a>
-      <a class="cart" href="cart.html"><img id="cart" src="assets/cart.png" alt="cart"><span class="count-bubble"></span></a>
+      <a class="cart" href="cart.html"><img id="cart" src="assets/cart.png" alt="cart"><span class="count-bubble"></span><img id="wish-icon" src="assets/wishlist.png"></a>
     </div>
 
     <!-- Cart -->
@@ -28,7 +28,7 @@
       <h3>My Cart</h3>
       <hr>
       <p id="no-items">You have no items in your cart.</p>
-      <table id="my-cart">
+      <table id="my-cart" class="table-style">
         <tr>
           <th></th>
           <th>Item</th>
@@ -49,6 +49,24 @@
       <button type="button" id="checkout">Proceed to Checkout</button>
 
     </div>
+
+    <!-- WISHLIST -->
+    <div id="wishlist" class="cart-items">
+      <h3>My Wishlist</h3>
+      <hr>
+      <p id="no-wishes">You have no items in your wishlist.</p>
+      <table id="my-wishlist"  class="table-style">
+        <tr>
+          <th></th>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th></th>
+        </tr>
+      </table>
+      <hr>
+    </div>
+
 
   </body>
 </html>
